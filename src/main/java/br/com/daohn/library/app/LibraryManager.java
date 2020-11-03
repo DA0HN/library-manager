@@ -6,5 +6,6 @@ package br.com.daohn.library.app;
  */
 public class LibraryManager {
     public static void main(String[] args) {
+        //TODO: realizar chamada da interface do menu
     }
 }
