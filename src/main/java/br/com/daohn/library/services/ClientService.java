@@ -52,4 +52,32 @@ public class ClientService {
 
         return clients;
     }
+
+    /**
+     * Exibe e retorna os dados {@link Client}
+     *
+     * @param clients lista de clientes que será consultada
+     * @param id      identificador que será utilizado na consulta
+     * @return {@code Client} cliente localizado
+     * @throws IllegalStateException lança exceção caso nenhum cliente seja encontrado.
+     */
+    public Client findById(Client[] clients, int id) {
+        for(Client client : clients) {
+            if(client.getId() == id) {
+                print(client);
+                return client;
+            }
+        }
+        throw new IllegalStateException("Cliente não encontrado");
+    }
+
+    /**
+     * Exibe na tela os dados do cliente
+     *
+     * @param client cliente que será apresentado na tela
+     */
+    private void print(Client client) {
+        System.out.println("Id.........: " + client.getId());
+        System.out.println("Name.......: " + client.getName());
+    }
 }
