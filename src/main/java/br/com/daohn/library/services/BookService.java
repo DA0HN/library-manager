@@ -74,6 +74,7 @@ public class BookService {
 
     /**
      * Exibe na tela os dados do livro
+     *
      * @param book livro que será apresentado na tela
      */
     private void print(Book book) {
@@ -130,8 +131,9 @@ public class BookService {
 
     /**
      * Realiza uma consulta por nome de livro ou nome do autor na lista de livros
+     *
      * @param books lista de livros que será consultada
-     * @param name nome do autor ou nome do livro que será consultado
+     * @param name  nome do autor ou nome do livro que será consultado
      */
     public Book[] findByAuthorOrBookName(Book[] books, String name) {
         var foundBooks = new Book[books.length];
@@ -149,11 +151,12 @@ public class BookService {
     /**
      * Método auxiliar para criar lista de livros da consulta do método {@code
      * findByAuthorOrBookName}
+     *
      * @param foundBooks lista que será populada
-     * @param book livro que será adicionado na lista
+     * @param book       livro que será adicionado na lista
      */
     private void createBooks(Book[] foundBooks, Book book) {
-        for(int i = 0; i< foundBooks.length; i++) {
+        for(int i = 0; i < foundBooks.length; i++) {
             if(foundBooks[i] == null) {
                 foundBooks[i] = book;
                 return;
@@ -163,8 +166,9 @@ public class BookService {
 
     /**
      * Exibe e retorna os dados do {@link Book}
+     *
      * @param books lista de livros que será consultado
-     * @param id identificador que será utilizado na consulta
+     * @param id    identificador que será utilizado na consulta
      * @return {@code Book} livro localizado
      * @throws IllegalStateException caso nenhum livro seja encontrado
      */
