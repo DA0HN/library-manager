@@ -1,18 +1,16 @@
 package br.com.daohn.library.models;
 
+import java.util.Arrays;
+
 /**
  * @author daohn on 02/11/2020
  * @project Library Manager
  */
 public class Loan {
-    private int id;
-    private int clientId;
-    private int bookId;
+    private int    id;
+    private int    clientId;
+    private int    bookId;
     private Status status;
-
-    public enum Status {
-        LOANED, RETURNED;
-    }
 
     public Loan() {
     }
@@ -54,5 +52,24 @@ public class Loan {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public enum Status {
+        LOANED, RETURNED;
+
+        /**
+         * Recebe um número que representa um {@link Status} e retorna o enumerado equivalente
+         *
+         * @param id identificador do {@link Status}
+         * @return {@code Status}
+         */
+        public static Status fromId(final Integer id) {
+            return Arrays.stream(Status.values())
+                    .filter(status -> id.equals(status.ordinal()))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException(
+                            "Não existe um status com esse id")
+                    );
+        }
     }
 }
